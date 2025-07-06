@@ -9,7 +9,7 @@ void main()
 	{
         digit = n % 10;         
         sum =sum+ digit * digit * digit;  
-        n /= 10;              
+        n = n / 10;              
     }
 
     if (sum == original)
