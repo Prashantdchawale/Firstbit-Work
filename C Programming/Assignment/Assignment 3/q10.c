@@ -1,17 +1,19 @@
+#include <stdio.h>
 void  main()
- {
-    int n = 12345; 
-    int first, last,sum;
+{
+    int num;
+	printf("Enter any Number : ") 
+    int firstdigi, lastdigt, sum=0;
 
-    last = n % 10; 
+    lastdigit = num % 10; 
 
-    first = n;
-    while (first >= 10) 
+    firstdigit = num;
+    while (firstdigit >= 10) 
 	{
-        first =first/ 10; 
+        firstdigit =firstdigit / 10; 
 		
-	 }
-    sum = first + last;
+	}
+    sum = firstdigit + lastdigit;
     printf("Sum of first and last digit: %d", sum);
 
 }
