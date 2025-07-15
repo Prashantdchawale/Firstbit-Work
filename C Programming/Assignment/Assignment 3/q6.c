@@ -1,15 +1,16 @@
 // to check given number is perfect number or not.
- 
+#include<stdio.h> 
 void main()
 {
-	int no=28,i=1,sum=0;
-	while (i<no)
+	int num,sum=0;
+	printf("Enter any Number : ");
+	scanf("%d",&num);
+	for (int i=1; i<num; i++)
 	{
-		if (no%i==0)
+		if (num%i==0)
 		sum = sum+i;
-		i++;
 	}
-    if (sum == no)
+    if (sum == num)
 		printf ("No is Perfect");
 	else
 		printf ("No is Not Perfect");
