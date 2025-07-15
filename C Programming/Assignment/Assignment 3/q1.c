@@ -1,8 +1,13 @@
 #include <stdio.h>
 void main ()
 {
-	int i=1;
-	while (i<=10)
+	int start,end;
+	printf("Enter Starting Number : ");
+	scanf("%d",&start);
+ 	printf("Enter ending Number   : ");
+	scanf("%d",&end);
+	int i=start;
+	while (i<=end)
 	{
 		printf("%d\n",i);    
 		i++;
