@@ -1,24 +1,28 @@
+//strong Number 
+#include<stdio.h>
 void  main() 
 {
-    int n = 145; 
-    int temp = n, sum = 0;
+    int num;
+	printf("Enter any Number : ");      //145
+	scanf("%d",&num); 
+    int temp = num, sum = 0;
 
     while (temp > 0) 
 	{
-        int no = temp % 10;
+        int num = temp % 10;
     
         int fact = 1, i = 1;
-        while (i <=no) 
-		{
+        while (i <=num) 
+	{
             fact =fact* i;
             i++;
         }
-
+		
         sum =sum+ fact;
         temp =temp/ 10;
-    }
+   	}
 
-    if (sum == n)
+    if (sum == num)
         printf("Strong");
     else
         printf("Not Strong");
