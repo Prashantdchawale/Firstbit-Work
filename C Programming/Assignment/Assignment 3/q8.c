@@ -9,17 +9,16 @@ void  main()
 
     while (temp > 0) 
 	{
-        int num = temp % 10;
+        int digit = temp % 10;
     
-        int fact = 1, i = 1;
-        while (i <=num) 
-	{
-            fact =fact* i;
-            i++;
-        }
+        int fact = 1; 
+       		for(int i=1;i<=digit;i++)
+		{
+         		fact =fact* i;
+        	}
 		
-        sum =sum+ fact;
-        temp =temp/ 10;
+	sum =sum+ fact;
+	temp =temp/ 10;
    	}
 
     if (sum == num)
