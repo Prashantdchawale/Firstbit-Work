@@ -1,20 +1,25 @@
 //3. Print perfect numbers in the given range 1 to n. 
+#include<stdio.h>
 void  main() 
 {
-    int n, i, j, res;
+    int n;
 
-    printf("Enter the end for perfect number: ");
+    printf("Enter the end for perfect numbers: ");
     scanf("%d", &n);
 
-		for (i = 2; i <= n; i++)
-	{
-        res = 1;
+    printf("Perfect numbers between 1 and %d are:\n", n);
 
-        for (j = 2; j <= i / 2; j++) 
+    for (int i = 2; i <= n; i++) 
+    { 
+		int sum=0;
+	    for (int j = 1; j <= i/2 ; j++) 
+        {
             if (i % j == 0) 
-                res = 0;
+                sum = sum + j;
+        }
 
-        if (res) 
+        if (sum == i)
             printf("%d ", i);
     }
+
 }
