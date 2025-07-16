@@ -5,24 +5,25 @@ void  main()
     printf("Enter the Last Number for strong number: ");
     scanf("%d", &n);
 
-    for (int num = 1; num <= n; num++) {
-        int temp = num;
+    for (int i = 1; i <= n; i++)
+    {
+        int temp = i;
         int sum = 0;
 
         while (temp > 0)
-		 {
+	{
             int digit = temp % 10;
 
             int fact = 1;
-            for (int i = 1; i <= digit; i++) 
-                fact *= i;
+            for (int j = 1; j <= digit; j++) 
+                fact = fact * j;
            
 
-            sum += fact;
-            temp /= 10;
+            sum = sum + fact ;
+            temp = temp / 10;
         }
 
-        if (sum == num) 
-            printf("%d ", num);  
+        if (sum == i) 
+            printf("%d ", i );  
     }
 }
