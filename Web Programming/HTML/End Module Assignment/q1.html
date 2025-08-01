@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>End Module</title>
+</head>
+<body>
+         <h1>Welcome to Firstbit Solutions</h1>
+    <img src="https://i.postimg.cc/9FLzZYBS/logo.jpg" alt="it is Firsbit logo" height="80px" width="80px" align="left" ><br><br><br>
+    <br><br>
+
+    <h3><i>Your Future Begins Here !</i></h3>
+    
+     <b>Address:</b>
+    Aditya Centeegra, Office No. 7, 3rd Floor, Near IDBI Bank,<br>
+    Dnyaneshwar Paduka Chowk, Pune, Maharashtra 411005<br><br>
+    
+    <b>Address : </b><a href="https://Firstbitsoltions.com">FirstBitsoltions.com</a><b> Address : </b> 9876543210 <br><hr>
+
+    <h2><u>Courses We Offer </u></h2>
+    <ul><li>Java Full Stack</li>
+        <li>Python Full Stack</li>
+        <li>React JS</li>
+        <li>Data Science</li>   
+    </ul><hr>
+    <br>
+
+
+             <h2>Class Timings : </h2>
+    <table border="1">
+        <tr>
+                <td colspan="3" align="center"><b>Weekly Batch Schedule</b></td></tr>
+        <tr>
+            <td><b><u>Timing</td></u></b>
+        <td><b><u>Trainer</td></u></b>
+        <td><b><u>Course</td></u></b>
+        <tr>
+            <td>11:00<sup>AM</sup>-12:30<sub>PM</sub></td>
+            <td>Vinayak Ujalambe</td>
+            <td>Java</td>
+        </tr>
+          <tr>
+              <td>11:00PM-12:30 PM</td>
+            <td>Ranjit Kale</td>
+            <td>Python</td>
+         <tr>
+             <td>05:00 PM-06:30 PM</td>
+            <td>Shubham Wagh</td>
+            <td>Web Programming</td>
+        </tr>
+    </table><hr>
+                 <h2>About Us : </h2>
+        <pre>        FirstBit Solusions is an IT training institute with a focus on:
+                      - Concept clarity
+                      - Real-time project guidance
+                      - Industry-ready syllabus
+        </pre>
+
+    <h2><u>Our Core Values</u> : </h2>
+        <ul>
+            <li>Organization Before Self Integrity</li>
+            <li>Striving for Omega</li>
+            <li>Continious Value addition</li>
+        </ul>
+        <hr>
+
+    <form>
+    <h1>Student Registration Form : </h1>
+
+    <label><b>Full Name:</b></label><br>
+    <input type="text" name="fullname"><br><br>
+
+    <label><b>Email ID:</b></label><br>
+    <input type="email" name="email"><br><br>
+
+     <label><b>Select Gender:</b></label><br>
+    <input type="radio" name="gender" value="Male"> Male
+    <input type="radio" name="gender" value="Female"> Female<br><br>
+
+    
+<label><b>Choose Course</b></label><br>
+    <select name="Java Full Stack">
+        <option value="">Java Full Stack-</option>
+        <option value="Java Full Stack">Morning</option>
+        <option value="Python">Afternoon</option>
+        <option value="Web Programming">Evening</option>
+    </select><br><br>
+
+    <label><b>Additional Notes : </b></label><br>
+    <textarea name="about" rows="4" cols="100"></textarea><br><br>
+
+<button>Register</button>
+    <button type="reset">Clear</button><hr>
+    </form>
+    <h4><i>Thanx you for choosing Firstbit Solusions !</i></h4>
+    &copy; 2025 FirstBit Soltions. All right reserved.
+    <br>
+
+
+
+
+<!-- Code injected by live-server -->
+<script>
+	// <![CDATA[  <-- For SVG support
+	if ('WebSocket' in window) {
+		(function () {
+			function refreshCSS() {
+				var sheets = [].slice.call(document.getElementsByTagName("link"));
+				var head = document.getElementsByTagName("head")[0];
+				for (var i = 0; i < sheets.length; ++i) {
+					var elem = sheets[i];
+					var parent = elem.parentElement || head;
+					parent.removeChild(elem);
+					var rel = elem.rel;
+					if (elem.href && typeof rel != "string" || rel.length == 0 || rel.toLowerCase() == "stylesheet") {
+						var url = elem.href.replace(/(&|\?)_cacheOverride=\d+/, '');
+						elem.href = url + (url.indexOf('?') >= 0 ? '&' : '?') + '_cacheOverride=' + (new Date().valueOf());
+					}
+					parent.appendChild(elem);
+				}
+			}
+			var protocol = window.location.protocol === 'http:' ? 'ws://' : 'wss://';
+			var address = protocol + window.location.host + window.location.pathname + '/ws';
+			var socket = new WebSocket(address);
+			socket.onmessage = function (msg) {
+				if (msg.data == 'reload') window.location.reload();
+				else if (msg.data == 'refreshcss') refreshCSS();
+			};
+			if (sessionStorage && !sessionStorage.getItem('IsThisFirstTime_Log_From_LiveServer')) {
+				console.log('Live reload enabled.');
+				sessionStorage.setItem('IsThisFirstTime_Log_From_LiveServer', true);
+			}
+		})();
+	}
+	else {
+		console.error('Upgrade your browser. This Browser is NOT supported WebSocket for Live-Reloading.');
+	}
+	// ]]>
+</script>
+</body>
+</html>
