@@ -1,0 +1,213 @@
+q1.   -----------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+mysql> show databases;
++--------------------+
+| Database           |
++--------------------+
+| 1demo              |
+| information_schema |
+| mysql              |
+| performance_schema |
+| sys                |
++--------------------+
+5 rows in set (0.08 sec)
+
+
+
+
+
+q2.   -----------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+mysql> desc countries;
++-----------+-------------+------+-----+---------+-------+
+| Field     | Type        | Null | Key | Default | Extra |
++-----------+-------------+------+-----+---------+-------+
+| c_id      | int         | YES  |     | NULL    |       |
+| c_name    | varchar(20) | YES  |     | NULL    |       |
+| region_id | int         | YES  |     | NULL    |       |
++-----------+-------------+------+-----+---------+-------+
+
+
+
+
+
+q3.   -----------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+mysql> create table jobs(job_id int primary key,job_title varchar(20) not null,min_salry decimal(7,2),max_salary decimal (7,2) check (max_salary<25000));
+Query OK, 0 rows affected (0.07 sec)
+mysql> show create table jobs;
+
++-------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| Table | Create Table                                                                                                                                                                                                                                                                                                                |
++-------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| jobs  | CREATE TABLE `jobs` (
+  `job_id` int NOT NULL,
+  `job_title` varchar(20) NOT NULL,
+  `min_salry` decimal(7,2) DEFAULT NULL,
+  `max_salary` decimal(7,2) DEFAULT NULL,
+  PRIMARY KEY (`job_id`),
+  CONSTRAINT `jobs_chk_1` CHECK ((`max_salary` < 25000))
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci |
+
+
+
+
+
+
+q4.   -------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+mysql> create table job_history(emp_id int, dept_id int, start_date date, end_date date, department_id int);
+Query OK, 0 rows affected (0.07 sec)
+
+mysql> desc job_history;
++---------------+------+------+-----+---------+-------+
+| Field         | Type | Null | Key | Default | Extra |
++---------------+------+------+-----+---------+-------+
+| emp_id        | int  | YES  |     | NULL    |       |
+| dept_id       | int  | YES  |     | NULL    |       |
+| start_date    | date | YES  |     | NULL    |       |
+| end_date      | date | YES  |     | NULL    |       |
+| department_id | int  | YES  |     | NULL    |       |
++---------------+------+------+-----+---------+-------+
+5 rows in set (0.01 sec)
+
+
+
+
+
+q5.   -------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+mysql> alter table countries
+    -> add constraint primary key (c_id);
+ERROR 1062 (23000): Duplicate entry '101' for key 'countries.PRIMARY'
+
+mysql> create table countries(c_id int primary key, c_name varchar(20), region_id int);
+Query OK, 0 rows affected (0.07 sec)
+
+mysql> desc countries;
++-----------+-------------+------+-----+---------+-------+
+| Field     | Type        | Null | Key | Default | Extra |
++-----------+-------------+------+-----+---------+-------+
+| c_id      | int         | NO   | PRI | NULL    |       |
+| c_name    | varchar(20) | YES  |     | NULL    |       |
+| region_id | int         | YES  |     | NULL    |       |
++-----------+-------------+------+-----+---------+-------+
+3 rows in set (0.02 sec)
+
+mysql> insert into countries (c_id,c_name,region_id) values (101,"INDIA",91);
+Query OK, 1 row affected (0.02 sec)
+
+mysql> insert into countries (c_id,c_name,region_id) values (101,"INDIA",91);
+ERROR 1062 (23000): Duplicate entry '101' for key 'countries.PRIMARY'
+
+
+
+
+
+q6.   -------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+mysql> alter table jobs
+    -> modify column job_title varchar(20) NOT NULL default ("");
+Query OK, 0 rows affected (0.29 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+
+mysql> alter table jobs
+    -> modify column min_salry decimal(7,2) default 8000;
+Query OK, 0 rows affected (0.03 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+
+mysql> alter table jobs
+    -> modify column max_salary decimal(7,2) default NULL;
+Query OK, 0 rows affected (0.02 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+
+mysql> INSERT INTO JOBS(JOB_id) VALUES (104);
+Query OK, 1 row affected (0.01 sec)
+
+mysql> table jobs;
++--------+-----------+-----------+------------+
+| job_id | job_title | min_salry | max_salary |
++--------+-----------+-----------+------------+
+|    101 | sgcHG     |   7000.00 |    8000.00 |
+|    102 | sgcHG     |   8000.00 |    8000.00 |
+|    104 |           |   8000.00 |       NULL |
++--------+-----------+-----------+------------+
+
+
+Q7  -------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+mysql> desc dept;
++-----------------+--------------+------+-----+---------+-------+
+| Field           | Type         | Null | Key | Default | Extra |
++-----------------+--------------+------+-----+---------+-------+
+| DEPARTMENT_ID   | decimal(4,0) | NO   | PRI | 0       |       |
+| DEPARTMENT_NAME | varchar(30)  | NO   |     | NULL    |       |
+| MANAGER_ID      | decimal(6,0) | NO   | PRI | 0       |       |
+| LOCATION_ID     | decimal(4,0) | YES  |     | NULL    |       |
++-----------------+--------------+------+-----+---------+-------+
+4 rows in set (0.00 sec)
+
+
+mysql> alter table dept
+    -> modify column MANAGER_ID decimal(6,0) not null default 0 primary key;
+ERROR 1068 (42000): Multiple primary key defined
+
+
+
+
+
+
+
+
+Q8   -------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+mysql> create table departments (
+    ->     department_id int not null,
+    ->     manager_id int not null,
+    ->     department_name varchar(100),
+    ->     primary key (department_id, manager_id));
+Query OK, 0 rows affected (0.09 sec)
+
+mysql> create table employees (
+    ->     employee_id int primary key,
+    ->     first_name varchar(50) not null,
+    ->     last_name varchar(50) not null,
+    ->     email varchar(100) unique,
+    ->     phone_number varchar(20),
+    ->     hire_date date not null,
+    ->     job_id varchar(20) not null,
+    ->     salary decimal(10,2),
+    ->     commission decimal(5,2),
+    ->     manager_id int,
+    ->     department_id int,
+    ->     foreign key (department_id, manager_id)
+    ->     references departments(department_id, manager_id));
+Query OK, 0 rows affected (0.16 sec)
+
+mysql> desc employees;
++---------------+---------------+------+-----+---------+-------+
+| Field         | Type          | Null | Key | Default | Extra |
++---------------+---------------+------+-----+---------+-------+
+| employee_id   | int           | NO   | PRI | NULL    |       |
+| first_name    | varchar(50)   | NO   |     | NULL    |       |
+| last_name     | varchar(50)   | NO   |     | NULL    |       |
+| email         | varchar(100)  | YES  | UNI | NULL    |       |
+| phone_number  | varchar(20)   | YES  |     | NULL    |       |
+| hire_date     | date          | NO   |     | NULL    |       |
+| job_id        | varchar(20)   | NO   |     | NULL    |       |
+| salary        | decimal(10,2) | YES  |     | NULL    |       |
+| commission    | decimal(5,2)  | YES  |     | NULL    |       |
+| manager_id    | int           | YES  |     | NULL    |       |
+| department_id | int           | YES  | MUL | NULL    |       |
++---------------+---------------+------+-----+---------+-------+
+11 rows in set (0.01 sec)
+
+
+
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
