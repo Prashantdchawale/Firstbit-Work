@@ -1,0 +1,118 @@
+
+mysql> SELECT * FROM doctor;
++----------+--------------+-------------------+----------------+
+| DoctorID | Name         | Specialty         | ContactDetails |
++----------+--------------+-------------------+----------------+
+| DR101    | Dr. Patil    | Cardiologist      | 9876500001     |
+| DR102    | Dr. Wagh     | Neurologist       | 9876500002     |
+| DR103    | Dr. Shinde   | Orthopedic        | 9876500003     |
+| DR104    | Dr. Jadhav   | General Physician | 9876500004     |
+| DR105    | Dr. Deshmukh | Dermatologist     | 9876500005     |
+| DR106    | Dr. Pawar    | Pediatrician      | 9876500006     |
+| DR107    | Dr. Kulkarni | Gynecologist      | 9876500007     |
+| DR108    | Dr. Gaikwad  | ENT Specialist    | 9876500008     |
+| DR109    | Dr. More     | Oncologist        | 9876500009     |
+| DR110    | Dr. Chavan   | Surgeon           | 9876500010     |
++----------+--------------+-------------------+----------------+
+10 rows in set (0.01 sec)
+
+mysql> SELECT * FROM patient;
++-----------+-----------+------+--------+----------------+---------------+
+| PatientID | Name      | Age  | Gender | ContactDetails | InsuranceInfo |
++-----------+-----------+------+--------+----------------+---------------+
+| P01       | Prashant  |   21 | Male   | 9876543210     | LIC-12345     |
+| P02       | Rahul     |   22 | Male   | 9988776655     | HDFC-54321    |
+| P03       | Ajay      |   23 | Male   | 9123456780     | ICICI-11223   |
+| P04       | Prathmesh |   25 | Male   | 9898989898     | LIC-99887     |
+| P05       | Rushi     |   21 | Male   | 9000011111     | HDFC-22334    |
+| P06       | Parth     |   22 | Male   | 9112233445     | ICICI-55667   |
+| P07       | Rohan     |   23 | Male   | 9556677889     | LIC-66778     |
+| P08       | Geeta     |   25 | Female | 9009988776     | HDFC-88990    |
+| P09       | Radhika   |   21 | Female | 9110099887     | ICICI-44556   |
+| P10       | Rutuja    |   22 | Female | 9332211000     | LIC-77889     |
++-----------+-----------+------+--------+----------------+---------------+
+10 rows in set (0.00 sec)
+
+mysql> SELECT * FROM encounter;
++-------------+-----------+----------+-----------------+---------------+---------------+-------------------+
+| EncounterID | PatientID | DoctorID | AppointmentDate | AdmissionDate | DischargeDate | Reason            |
++-------------+-----------+----------+-----------------+---------------+---------------+-------------------+
+| E01         | P01       | DR101    | 2020-02-10      | 2020-02-11    | 2020-02-15    | Chest Pain        |
+| E02         | P02       | DR102    | 2020-05-12      | NULL          | NULL          | Headache          |
+| E03         | P03       | DR103    | 2021-09-14      | 2021-09-15    | 2021-09-18    | Fracture          |
+| E04         | P04       | DR104    | 2021-12-16      | NULL          | NULL          | Fever             |
+| E05         | P05       | DR105    | 2022-06-18      | NULL          | NULL          | Skin Allergy      |
+| E06         | P06       | DR106    | 2022-11-19      | NULL          | NULL          | Child Vaccination |
+| E07         | P07       | DR107    | 2023-02-20      | 2023-02-21    | 2023-02-23    | Pregnancy Checkup |
+| E08         | P08       | DR108    | 2023-04-21      | NULL          | NULL          | Hearing Problem   |
+| E09         | P09       | DR109    | 2024-07-22      | 2024-07-23    | 2024-07-27    | Cancer Screening  |
+| E10         | P10       | DR110    | 2024-10-24      | 2024-10-25    | 2024-10-28    | Appendicitis      |
++-------------+-----------+----------+-----------------+---------------+---------------+-------------------+
+10 rows in set (0.00 sec)
+
+mysql> SELECT * FROM medicalhistory;
++------------+------------+------------------+----------------------+-------------+
+| history_id | patient_id | medications      | prev_treatment       | recorded_at |
++------------+------------+------------------+----------------------+-------------+
+| h01        | p01        | Metformin        | Appendectomy (2018)  | 2025-09-20  |
+| h02        | p02        | Insulin          | Gallbladder surgery  | 2025-09-20  |
+| h03        | p03        | Salbutamol       | Bronchitis treatment | 2025-09-20  |
+| h04        | p04        | Iron supplements | Blood transfusion    | 2025-09-20  |
+| h05        | p05        | Paracetamol      | Headache therapy     | 2025-09-20  |
+| h06        | p06        | Amlodipine       | Stent placement      | 2025-09-20  |
+| h07        | p07        | Metformin        | Dietary management   | 2025-09-20  |
+| h08        | p08        | Ibuprofen        | Joint replacement    | 2025-09-20  |
+| h09        | p09        | Antihistamines   | None                 | 2025-09-20  |
+| h10        | p10        | Tamiflu          | Cold treatment       | 2025-09-20  |
++------------+------------+------------------+----------------------+-------------+
+10 rows in set (0.01 sec)
+
+mysql> SELECT * FROM prescription;
++----------------+-------------+------------------+--------+-------------------+
+| PrescriptionID | EncounterID | Medication       | Dosage | DispensingDetails |
++----------------+-------------+------------------+--------+-------------------+
+|              1 | E01         | Aspirin          | 75mg   | 30 tablets        |
+|              2 | E02         | Paracetamol      | 500mg  | 10 tablets        |
+|              3 | E03         | Ibuprofen        | 400mg  | 15 tablets        |
+|              4 | E04         | Dolo-650         | 650mg  | 20 tablets        |
+|              5 | E05         | Cetirizine       | 10mg   | 10 tablets        |
+|              6 | E06         | Vitamin D3       | 60k IU | 4 tablets         |
+|              7 | E07         | Iron Supplement  | 100mg  | 15 tablets        |
+|              8 | E08         | Antibiotic       | 500mg  | 7 tablets         |
+|              9 | E09         | Chemotherapy Med | 50mg   | 3 vials           |
+|             10 | E10         | Painkiller       | 50mg   | 5 injections      |
++----------------+-------------+------------------+--------+-------------------+
+10 rows in set (0.00 sec)
+
+mysql> SELECT * FROM proceduresurgery;
++-------------+-------------+---------------+---------------+-------------------+
+| ProcedureID | EncounterID | ProcedureName | ProcedureDate | Details           |
++-------------+-------------+---------------+---------------+-------------------+
+|           1 | E01         | Angioplasty   | 2020-02-12    | Stent placement   |
+|           2 | E02         | MRI Brain     | 2020-05-12    | Detailed scan     |
+|           3 | E03         | Bone Surgery  | 2021-09-15    | Fracture Fixation |
+|           4 | E04         | Blood Test    | 2021-12-16    | Routine Checkup   |
+|           5 | E05         | Skin Biopsy   | 2022-06-18    | Sample taken      |
+|           6 | E06         | Vaccination   | 2022-11-19    | Polio Dose        |
+|           7 | E07         | Ultrasound    | 2023-02-20    | Pregnancy Check   |
+|           8 | E08         | Ear Cleaning  | 2023-04-21    | Wax Removal       |
+|           9 | E09         | Biopsy        | 2024-07-23    | Cancer Diagnosis  |
+|          10 | E10         | Appendectomy  | 2024-10-25    | Appendix Removal  |
++-------------+-------------+---------------+---------------+-------------------+
+10 rows in set (0.01 sec)
+
+mysql> SELECT * FROM diagnostictest;
++--------+-------------+--------------------+-------------------+------------+
+| TestID | EncounterID | TestType           | Result            | TestDate   |
++--------+-------------+--------------------+-------------------+------------+
+|      1 | E01         | ECG                | Normal            | 2020-02-10 |
+|      2 | E02         | CT Scan            | No Issue          | 2020-05-12 |
+|      3 | E03         | X-Ray              | Fracture Detected | 2021-09-14 |
+|      4 | E04         | Blood Test         | Viral Infection   | 2021-12-16 |
+|      5 | E05         | Allergy Test       | Positive          | 2022-06-18 |
+|      6 | E06         | Blood Sugar        | Normal            | 2022-11-19 |
+|      7 | E07         | Ultrasound         | Healthy Pregnancy | 2023-02-20 |
+|      8 | E08         | Audiometry         | Hearing Loss      | 2023-04-21 |
+|      9 | E09         | MRI                | Tumor Detected    | 2024-07-22 |
+|     10 | E10         | Ultrasound Abdomen | Appendix Swelling | 2024-10-24 |
++--------+-------------+--------------------+-------------------+------------+
