@@ -1,0 +1,17 @@
+package com.phoenix.demos;
+
+public class MainApp {
+
+	public static void main(String[] args) {
+		
+		WeatherStation w1=new WeatherStation();
+		
+		Mobile m1=new Mobile(w1);
+		Mobile m2=new Mobile(w1);
+		Mobile m3=new Mobile();
+		
+		w1.changeTemp(12);
+		w1.changeTemp(23);
+	}
+
+}
