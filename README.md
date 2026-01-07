@@ -73,7 +73,7 @@ It covers core programming fundamentals, data structures, databases, and Java de
 **Prashant D. Chawale**  
 - Aspiring Software Developer  
 - NCC Cadet  
-- National-level Sports Shooting Player  
+- National-level Sports Player As Renowned Shooter  
 - Goal: Serve the nation as an Indian Army Officer  
 
 ---
